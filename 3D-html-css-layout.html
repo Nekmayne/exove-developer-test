@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .heading {
+        background-color: #f3f3f3;
+        padding: 8px;
+        margin-bottom: 10px;
+      }
+      .main-section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 400px;
+        margin-bottom: 10px;
+        grid-gap: 10px;
+      }
+      .article {
+        background-color: #f3f3f3;
+        padding: 8px;
+      }
+      .footer {
+        background-color: #f3f3f3;
+        padding: 8px;
+        align-items: center;
+      }
+      @media screen and (max-width: 960px) {
+        .main-section {
+          grid-template-columns: repeat(2, 1fr);
+          grid-auto-rows: auto;
+        }
+      }
+
+      @media screen and (max-width: 550px) {
+        .main-section {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="heading">
+      <h1 class="heading-text">News site</h1>
+    </header>
+    <div class="main-section">
+      <article class="article">
+        <h3>Item Heading 1</h3>
+        <p class="text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
+          voluptatum eos laboriosam consequatur sunt at sit, delectus minus
+          porro doloribus? Rem aliquam autem harum asperiores doloremque dolor
+          sed distinctio perferendis.
+        </p>
+      </article>
+      <article class="article">
+        <h3>Item Heading 2</h3>
+        <p class="text">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos
+          maxime eveniet aspernatur, ullam amet eaque aperiam doloribus expedita
+          provident incidunt adipisci magnam eum ut corrupti sequi dolorem
+          inventore cumque fuga.
+        </p>
+      </article>
+      <article class="article">
+        <h3>Item Heading 3</h3>
+        <p class="text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+          asperiores nulla placeat rerum aliquam, ad rem! Ullam eum consequuntur
+          expedita at dolores a officiis laudantium necessitatibus tenetur
+          fugit. Magni, labore?
+        </p>
+      </article>
+    </div>
+    <footer class="footer">
+      <p>&copy; News site</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading animation</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .btn {
+        text-align: center;
+        margin-bottom: 5px;
+        background-color: #f3f3f3;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        cursor: pointer;
+        outline: none;
+        padding: 8px 0.8em;
+        text-decoration: none;
+      }
+
+      .btn-color {
+        color: blue;
+        text-align: center;
+        margin-bottom: 5px;
+        background-color: #f3f3f3;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        cursor: pointer;
+        outline: none;
+        padding: 8px 0.8em;
+        text-decoration: none;
+      }
+
+      .center {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        min-height: 90vh;
+      }
+
+      .circle {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 16px solid #f3f3f3;
+        border-top: 16px solid red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: spin var(--speed, 1s) linear infinite;
+      }
+
+      .loading-text {
+        position: absolute;
+        top: calc(50% - 15px);
+        left: calc(50% - 55px);
+        text-align: center;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      span {
+        color: black;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="center">
+      <div>
+        <button class="btn" id="toggle">Switch To Large</button>
+      </div>
+      <div>
+        <button class="btn-color" id="toggleCol">Switch To Blue</button>
+      </div>
+      <div>
+        <button class="btn" id="toggleSpeed">Switch To Slow</button>
+      </div>
+      <div id="circle" class="circle"></div>
+      <span class="loading-text">Loading...</span>
+    </div>
+    <script>
+      const toggleButton = document.querySelector("#toggle");
+      const circle = document.querySelector("#circle");
+      let isSmall = true;
+
+      toggleButton.addEventListener("click", function () {
+        if (isSmall) {
+          circle.style.width = "300px";
+          circle.style.height = "300px";
+          toggleButton.textContent = "Switch To Small";
+        } else {
+          circle.style.width = "150px";
+          circle.style.height = "150px";
+          toggleButton.textContent = "Switch To Large";
+        }
+        isSmall = !isSmall;
+      });
+
+      const circle2 = document.querySelector("#circle");
+      const colorButton = document.querySelector("#toggleCol");
+      let color = "red";
+
+      colorButton.addEventListener("click", function () {
+        if (color === "red") {
+          color = "blue";
+          colorButton.textContent = "Switch To Red";
+          colorButton.style.color = "red";
+        } else {
+          color = "red";
+          btnColor = "red";
+          colorButton.textContent = "Switch To Blue";
+          colorButton.style.color = "blue";
+        }
+        circle2.style.borderTopColor = color;
+      });
+
+      const circle3 = document.querySelector("#circle");
+      const speedButton = document.querySelector("#toggleSpeed");
+      let speed = 1;
+
+      speedButton.addEventListener("click", function () {
+        speed = speed === 1 ? 3 : 1;
+        circle.style.setProperty("--speed", speed + "s");
+        speedButton.textContent =
+          speed === 1 ? "Switch To Slow" : "Switch To Fast";
+      });
+    </script>
+  </body>
+</html>
